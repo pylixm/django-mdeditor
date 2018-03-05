@@ -124,27 +124,27 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
-#
-# MDEDITOR_CONFIGS = {
-#     'width': '90%',
-#     'heigth': 500,
-#     'toolbar': ["undo", "redo", "|",
-#                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
-#                 "h1", "h2", "h3", "h5", "h6", "|",
-#                 "list-ul", "list-ol", "hr", "|",
-#                 "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
-#                 "emoji", "html-entities", "pagebreak", "goto-line", "|",
-#                 "help", "info",
-#                 "||", "preview", "watch", "fullscreen"],
-#     'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-#     'image_floder': 'editor',
-#     'theme': 'default',  # dark / default
-#     'preview_theme': 'default',  # dark / default
-#     'editor_theme': 'default',  # pastel-on-dark / default
-#     'toolbar_autofixed': True,
-#     'search_replace': True,
-#     'emoji': True,
-#     'tex': True,
-#     'flow_chart': True,
-#     'sequence': True
-# }
+
+MDEDITOR_CONFIGS = {
+    'width': '90%',
+    'heigth': 500,
+    'toolbar': ["undo", "redo", "|",
+                "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                "h1", "h2", "h3", "h5", "h6", "|",
+                "list-ul", "list-ol", "hr", "|",
+                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
+                "emoji", "html-entities", "pagebreak", "goto-line", "|",
+                "help", "info",
+                "||", "preview", "watch", "fullscreen"],
+    'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+    'image_floder': 'editor',
+    'theme': 'default',  # dark / default
+    'preview_theme': 'default',  # dark / default
+    'editor_theme': 'default',  # pastel-on-dark / default
+    'toolbar_autofixed': True,
+    'search_replace': True,
+    'emoji': True,
+    'tex': True,
+    'flow_chart': True,
+    'sequence': True
+}
