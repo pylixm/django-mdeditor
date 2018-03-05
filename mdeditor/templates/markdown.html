@@ -1,0 +1,59 @@
+{% load static %}
+<style type="text/css">
+    .wmd-wrapper  ul {
+        margin-left: 0px !important;
+    }
+    .wmd-wrapper ul li{
+        list-style: disc !important;
+    }
+    .wmd-wrapper ul ul li{
+        list-style: circle !important;
+    }
+</style>
+
+<div class="wmd-wrapper" id="{{ id }}-wmd-wrapper"><textarea {{ final_attrs|safe }}>{{ value }}</textarea></div>
+
+<script type="text/javascript">
+    var MarkDownEditor;
+
+    $(function () {
+        MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
+            width: "{{ config.width }}",
+            height: {{ config.heigth }},
+            syncScrolling: "single",
+            path: "{% static  '/js/lib/' %}",
+            // theme
+            theme : "{{ config.theme|safe }}",
+            previewTheme : "{{ config.preview_theme|safe }}",
+            editorTheme : "{{ config.editor_theme }}",
+
+            //saveHTMLToTextarea: true, // editor.md 有问题没有测试成功
+            toolbarAutoFixed: {{ config.toolbar_autofixed|lower }},
+            searchReplace: {{ config.search_replace|lower }},
+            emoji: {{ config.emoji|lower }},
+            tex: {{ config.tex|lower }},
+            flowChart: {{ config.flow_chart|lower }},
+            sequenceDiagram: {{ config.sequence|lower }},
+
+            // image upload
+            imageUpload: true,
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "/mdeditor/uploads/",
+            toolbarIcons: function () {
+                return {{ config.toolbar|safe }}
+            },
+            onload: function () {
+                console.log('onload', this);
+                //this.fullscreen();
+                //this.unwatch();
+                //this.watch().fullscreen();
+
+                //this.setMarkdown("#PHP");
+                //this.width("100%");
+                //this.height(480);
+                //this.resize("100%", 640);
+            }
+        });
+
+    });
+</script>
