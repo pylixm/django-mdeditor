@@ -188,7 +188,7 @@ MDEDITOR_CONFIGS = {
                 "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
                 "emoji", "html-entities", "pagebreak", "goto-line", "|",
                 "help", "info",
-                "||", "preview", "watch", "fullscreen"],
+                "||", "preview", "watch", "fullscreen"],  # 自定义编辑框工具栏
     'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # 图片上传格式类型
     'image_floder': 'editor',  # 图片保存文件夹名称
     'theme': 'default',  # 编辑框主题 ，dark / default
