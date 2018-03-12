@@ -3,7 +3,7 @@
 
 
 [![ENV](https://img.shields.io/badge/release-v0.1.1-blue.svg)](https://github.com/pylixm/django-mdeditor)
-[![ENV](https://img.shields.io/badge/Chinese-Docs-v0.1.1-blue.svg)](./README_CN.md)
+[![ENV](https://img.shields.io/badge/Chinese-v0.1.1-blue.svg)](./README_CN.md)
 [![ENV](https://img.shields.io/badge/Gitter-v0.1.1-blue.svg)](https://gitter.im/django-mdeditor/Lobby)
 [![ENV](https://img.shields.io/badge/python-2.x/3.x-green.svg)](https://github.com/pylixm/django-mdeditor)
 [![ENV](https://img.shields.io/badge/django-1.7+-green.svg)](https://github.com/pylixm/django-mdeditor)
