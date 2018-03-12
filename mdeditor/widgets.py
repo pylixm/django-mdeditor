@@ -73,13 +73,6 @@ class MDEditorWidget(forms.Textarea):
                 raise ImproperlyConfigured('CKEDITOR_CONFIGS setting must be a\
                         dictionary type.')
 
-        # extra_plugins = extra_plugins or []
-        #
-        # if extra_plugins:
-        #     self.config['extraPlugins'] = ','.join(extra_plugins)
-        #
-        # self.external_plugin_resources = external_plugin_resources or []
-
     def render(self, name, value, attrs=None):
         if value is None:
             value = ''
