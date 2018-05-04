@@ -9,6 +9,22 @@
     .wmd-wrapper ul ul li{
         list-style: circle !important;
     }
+    .wmd-wrapper h1,h2,h3,h4,h5,h6 {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .wmd-wrapper h2,h3,h4{
+        padding: 0px !important;
+    }
+    .wmd-wrapper h5{
+        letter-spacing: 0px !important;
+        text-transform: none !important;
+        font-size: 1em !important;
+    }
+    .wmd-wrapper h6{
+        font-size: 1em !important;
+        color: #777 !important;
+    }
 </style>
 
 <div class="wmd-wrapper" id="{{ id }}-wmd-wrapper"><textarea {{ final_attrs|safe }}>{{ value }}</textarea></div>
@@ -27,7 +43,7 @@
             previewTheme : "{{ config.preview_theme|safe }}",
             editorTheme : "{{ config.editor_theme }}",
 
-            //saveHTMLToTextarea: true, // editor.md 有问题没有测试成功
+            saveHTMLToTextarea: true, // editor.md 有问题没有测试成功
             toolbarAutoFixed: {{ config.toolbar_autofixed|lower }},
             searchReplace: {{ config.search_replace|lower }},
             emoji: {{ config.emoji|lower }},

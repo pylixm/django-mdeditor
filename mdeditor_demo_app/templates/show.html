@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="{% static 'css/editormd.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/editormd.preview.css' %}" rel="stylesheet">
+</head>
+<body>
+<div> name: {{ object.name }}</div>
+<div> content:
+  <div id="content"><textarea>{{ object.content }}</textarea></div>
+</div>
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+  <script src="{% static 'js/editormd.min.js'%}"></script>
+  <script src="{% static 'js/lib/marked.min.js'%}"></script>
+  <script src="{% static 'js/lib/prettify.min.js'%}"></script>
+  <script src="{% static 'js/lib/raphael.min.js'%}"></script>
+  <script src="{% static 'js/lib/underscore.min.js'%}"></script>
+  <script src="{% static 'js/lib/sequence-diagram.min.js'%}"></script>
+  <script src="{% static 'js/lib/flowchart.min.js'%}"></script>
+  <script src="{% static 'js/lib/jquery.flowchart.min.js'%}"></script>
+<script>
+  $(function () {
+      // js 解析markdown
+      editormd.markdownToHTML("content", {
+          //htmlDecode      : "style,script,iframe",  // you can filter tags decode
+          emoji           : true,
+          taskList        : true,
+          tex             : true,  // 默认不解析
+          flowChart       : true,  // 默认不解析
+          sequenceDiagram : true,  // 默认不解析
+      });
+
+      $(".reference-link").each(function (i,obj) {
+        console.log(obj)
+      })
+  })
+
+</script>
+</body>
+</html>
