@@ -19,7 +19,7 @@ setup(
     author='pylixm',
     author_email='pyli.xm@gmail.com',
     install_requires=[
-        'django=1.11.10',
+        'django==1.11.10',
     ],
     classifiers=[
         'Environment :: Web Environment',
