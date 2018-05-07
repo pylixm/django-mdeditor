@@ -14,6 +14,8 @@
 
 **Django-mdeditor** 的灵感参考自伟大的项目 [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor).
 
+**注：** 关于Markdown页面渲染问题，建议后端渲染。因`Editor.md` 已长时间不更新有些bug和兼容性问题需要自己调试，当然前端同学可自行选择。
+
 ## 功能
 
 - 支持 Editor.md 大部分功能 
