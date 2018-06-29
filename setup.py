@@ -18,9 +18,6 @@ setup(
     url='',
     author='pylixm',
     author_email='pyli.xm@gmail.com',
-    install_requires=[
-        'django==1.11.10',
-    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -29,6 +26,7 @@ setup(
         'Framework :: Django :: 1.9',
         'Framework :: Django :: 1.10',
         'Framework :: Django :: 1.11',
+        'Framework :: Django :: 2.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: OS Independent',
