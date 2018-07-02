@@ -53,7 +53,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
 
 ```
-Make floder `uploads/editor` in you project for media files.  
+Make folder `uploads/editor` in you project for media files.  
 
 - Add url to your urls like this:
 ```python
