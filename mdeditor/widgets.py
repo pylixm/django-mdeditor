@@ -27,7 +27,8 @@ DEFAULT_CONFIG = {
                 "emoji", "html-entities", "pagebreak", "goto-line", "|",
                 "help", "info",
                 "||", "preview", "watch", "fullscreen"],
-    'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+    'upload_image_formats': ["jpg", "JPG", "jpeg", "JPEG", "gif", "GIF", "png",
+                "PNG", "bmp", "BMP", "webp", "WEBP"],
     'image_floder': 'editor',
     'theme': 'default',  # dark / default
     'preview_theme': 'default',  # dark / default

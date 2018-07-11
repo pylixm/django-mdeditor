@@ -53,7 +53,7 @@
 
             // image upload
             imageUpload: true,
-            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageFormats: {{ config.upload_image_formats|safe }},
             imageUploadURL: "/mdeditor/uploads/",
             toolbarIcons: function () {
                 return {{ config.toolbar|safe }}
