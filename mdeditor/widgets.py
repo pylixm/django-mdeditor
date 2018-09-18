@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from __future__ import absolute_import
 
 from django import forms
@@ -74,7 +75,10 @@ class MDEditorWidget(forms.Textarea):
                 raise ImproperlyConfigured('CKEDITOR_CONFIGS setting must be a\
                         dictionary type.')
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, renderer=None, attrs=None):
+        """
+        renderer: django2.1 新增加的参数，此处不做应用，赋值None做兼容处理
+        """
         if value is None:
             value = ''
 
