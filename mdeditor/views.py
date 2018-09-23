@@ -8,10 +8,10 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from .widgets import DEFAULT_CONFIG
+from .configs import MDConfig
 
 # TODO 此处获取default配置，当用户设置了其他配置时，此处无效，需要进一步完善
-MDEDITOR_CONFIGS = settings.MDEDITOR_CONFIGS['default'] if hasattr(settings, 'MDEDITOR_CONFIGS') else DEFAULT_CONFIG
+MDEDITOR_CONFIGS = MDConfig('default')
 
 
 class UploadView(generic.View):
