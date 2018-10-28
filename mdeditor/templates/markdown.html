@@ -36,6 +36,15 @@
         MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
             width: "{{ config.width }}",
             height: {{ config.heigth }},
+            onfullscreen : function() {
+                this.editor.css("border-radius", 0).css("z-index", 120);
+            },
+            onfullscreenExit : function() {
+                this.editor.css({
+                    zIndex : 10,
+                    border : "none",
+                    "border-radius" : "5px"
+                });
             syncScrolling: "single",
             path: "{% static  '/js/lib/' %}",
             // theme
