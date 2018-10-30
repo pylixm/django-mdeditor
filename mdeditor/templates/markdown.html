@@ -27,7 +27,7 @@
     }
 </style>
 
-<div class="wmd-wrapper" style="z-index:9999;" id="{{ id }}-wmd-wrapper"><textarea {{ final_attrs|safe }}>{{ value }}</textarea></div>
+<div class="wmd-wrapper"  id="{{ id }}-wmd-wrapper"><textarea {{ final_attrs|safe }}>{{ value }}</textarea></div>
 
 <script type="text/javascript">
     var MarkDownEditor;
@@ -36,6 +36,7 @@
         MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
             width: "{{ config.width }}",
             height: {{ config.heigth }},
+            // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
             onfullscreen : function() {
                 this.editor.css("border-radius", 0).css("z-index", 120);
             },
@@ -44,7 +45,8 @@
                     zIndex : 10,
                     border : "none",
                     "border-radius" : "5px"
-                });
+                })
+            },
             syncScrolling: "single",
             path: "{% static  '/js/lib/' %}",
             // theme
