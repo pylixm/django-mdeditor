@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==1.11.10"
+django = "==1.11.16"
 django-mdeditor = "*"
 
 [dev-packages]
