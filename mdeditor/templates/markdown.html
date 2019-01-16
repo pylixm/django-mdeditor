@@ -35,7 +35,7 @@
     $(function () {
         MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
             width: "{{ config.width }}",
-            height: {{ config.heigth }},
+            height: {{ config.height }},
             // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
             onfullscreen : function() {
                 this.editor.css("border-radius", 0).css("z-index", 120);

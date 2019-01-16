@@ -5,7 +5,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 DEFAULT_CONFIG = {
     'width': '90%',
-    'heigth': 500,
+    'height': 500,
     'toolbar': ["undo", "redo", "|",
                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                 "h1", "h2", "h3", "h5", "h6", "|",

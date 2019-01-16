@@ -67,6 +67,6 @@ class UploadView(generic.View):
 
         return HttpResponse(json.dumps({'success': 1,
                                         'message': "上传成功！",
-                                        'url': os.path.join(settings.MEDIA_URL,
+                                        'url': '{0}{1}/{2}'.format(settings.MEDIA_URL,
                                                             MDEDITOR_CONFIGS['image_floder'],
                                                             file_full_name)}))
