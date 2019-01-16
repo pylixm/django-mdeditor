@@ -55,10 +55,10 @@ class MDEditorWidget(forms.Textarea):
     def _get_media(self):
         return forms.Media(
             css={
-                "all": ("css/editormd.css",)
+                "all": ("mdeditor/css/editormd.css",)
             },
             js=(
-                "js/jquery.min.js",
-                "js/editormd.min.js",
+                "mdeditor/js/jquery.min.js",
+                "mdeditor/js/editormd.min.js",
             ))
     media = property(_get_media)

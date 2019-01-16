@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <link href="{% static 'css/editormd.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/editormd.preview.css' %}" rel="stylesheet">
+  <link href="{% static 'mdeditor/css/editormd.min.css' %}" rel="stylesheet">
+  <link href="{% static 'mdeditor/css/editormd.preview.css' %}" rel="stylesheet">
 </head>
 <body>
 <div> name: {{ object.name }}</div>
 <div> content:
   <div id="content"><textarea>{{ object.content }}</textarea></div>
 </div>
-  <script src="{% static 'js/jquery.min.js'%}"></script>
-  <script src="{% static 'js/editormd.min.js'%}"></script>
-  <script src="{% static 'js/lib/marked.min.js'%}"></script>
-  <script src="{% static 'js/lib/prettify.min.js'%}"></script>
-  <script src="{% static 'js/lib/raphael.min.js'%}"></script>
-  <script src="{% static 'js/lib/underscore.min.js'%}"></script>
-  <script src="{% static 'js/lib/sequence-diagram.min.js'%}"></script>
-  <script src="{% static 'js/lib/flowchart.min.js'%}"></script>
-  <script src="{% static 'js/lib/jquery.flowchart.min.js'%}"></script>
+  <script src="{% static 'mdeditor/js/jquery.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/editormd.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/marked.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/prettify.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/raphael.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/underscore.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/sequence-diagram.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/flowchart.min.js' %}"></script>
+  <script src="{% static 'mdeditor/js/lib/jquery.flowchart.min.js' %}"></script>
 <script>
   $(function () {
       // js 解析markdown
