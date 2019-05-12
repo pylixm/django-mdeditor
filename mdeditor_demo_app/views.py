@@ -18,7 +18,8 @@ class MDEditorFormView(generic.FormView):
     def form_valid(self, form):
         kwargs = {
             'name': form.cleaned_data['name'],
-            'content': form.cleaned_data['content']
+            'content': form.cleaned_data['content'],
+            'content_test': form.cleaned_data['content']
         }
         instance = models.ExampleModel.objects.create(**kwargs)
         self.success_url = reverse('show-view', kwargs={'pk': instance.id})
