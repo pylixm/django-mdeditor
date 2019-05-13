@@ -123,7 +123,7 @@ MEDIA_URL = '/media/'
 MDEDITOR_CONFIGS = {
     'default': {
         'width': '90%',
-        'heigth': 500,
+        'height': 500,
         'toolbar': ["undo", "redo", "|",
                     "bold", "del", "italic", "quote", "ucwords", "uppercase",
                     "lowercase", "|",
@@ -145,6 +145,7 @@ MDEDITOR_CONFIGS = {
         'emoji': True,
         'tex': True,
         'flow_chart': True,
-        'sequence': True
+        'sequence': True,
+        'language': 'zh'  # zh / en
     }
 }

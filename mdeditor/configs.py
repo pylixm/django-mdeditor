@@ -25,7 +25,8 @@ DEFAULT_CONFIG = {
     'emoji': True,
     'tex': True,
     'flow_chart': True,
-    'sequence': True
+    'sequence': True,
+    'language': 'zh'  # zh / en
 }
 
 
