@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <style type="text/css">
     .wmd-wrapper  ul {
         margin-left: 0px !important;
@@ -31,6 +31,8 @@
 
 {% if config.language == 'en' %}
 <script src="{% static 'mdeditor/languages/en.js' %}"></script>
+{% elif config.language == 'de' %}
+<script src="{% static 'mdeditor/languages/de.js' %}"></script>
 {% endif %}
 <script type="text/javascript">
     var MarkDownEditor;
