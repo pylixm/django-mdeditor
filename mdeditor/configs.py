@@ -4,7 +4,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 
 DEFAULT_CONFIG = {
-    'width': '90%',
+    'width': '100%',
     'height': 500,
     'toolbar': ["undo", "redo", "|",
                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
@@ -16,7 +16,7 @@ DEFAULT_CONFIG = {
                 "||", "preview", "watch", "fullscreen"],
     'upload_image_formats': ["jpg", "JPG", "jpeg", "JPEG", "gif", "GIF", "png",
                              "PNG", "bmp", "BMP", "webp", "WEBP"],
-    'image_floder': 'editor',
+    'image_folder': 'editor',
     'theme': 'default',  # dark / default
     'preview_theme': 'default',  # dark / default
     'editor_theme': 'default',  # pastel-on-dark / default
