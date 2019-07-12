@@ -39,17 +39,19 @@
 
     $(function () {
         MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
+            watch: false,
+            lineNumbers: false,
+            lineWrapping: false,
             width: "{{ config.width }}",
             height: {{ config.height }},
             // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
             onfullscreen : function() {
-                this.editor.css("border-radius", 0).css("z-index", 120);
+                this.editor.css("border-radius", 0).css("z-index", 9999);
             },
             onfullscreenExit : function() {
                 this.editor.css({
                     zIndex : 10,
-                    border : "none",
-                    "border-radius" : "5px"
+                    border : "1px solid rgb(221,221,221)"
                 })
             },
             syncScrolling: "single",
@@ -77,7 +79,7 @@
             onload: function () {
                 console.log('onload', this);
                 //this.fullscreen();
-                //this.unwatch();
+                // this.unwatch();
                 //this.watch().fullscreen();
 
                 //this.setMarkdown("#PHP");
