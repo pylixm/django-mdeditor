@@ -46,8 +46,8 @@
     $(function () {
         editormd("{{ id }}-wmd-wrapper", {
             watch: {{ config.watch|lower }}, // 关闭实时预览
-            lineNumbers: false,
-            lineWrapping: false,
+            lineNumbers: {{ config.lineNumbers|lower }},
+            lineWrapping: {{ config.lineWrapping|lower }},
             width: "{{ config.width }}",
             height: {{ config.height }},
             // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。

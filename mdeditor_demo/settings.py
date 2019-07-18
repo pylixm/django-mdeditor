@@ -147,7 +147,9 @@ MDEDITOR_CONFIGS = {
         'flow_chart': True,
         'sequence': True,
         'language': 'zh',  # zh / en
-        'watch': True  # Live preview
+        'watch': True,  # Live preview
+        'lineWrapping': False,  # lineWrapping
+        'lineNumbers': True  # lineNumbers
     },
     'custom': {
         'width': '90%',

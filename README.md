@@ -197,7 +197,9 @@ MDEDITOR_CONFIGS = {
         'tex': True,  # whether to open the tex chart function
         'flow_chart': True,  # whether to open the flow chart function
         'sequence': True, # Whether to open the sequence diagram function
-        'watch': True  # Live preview
+        'watch': True,  # Live preview
+        'lineWrapping': False,  # lineWrapping
+        'lineNumbers': False  # lineNumbers
     }
     
 }

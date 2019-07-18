@@ -27,7 +27,9 @@ DEFAULT_CONFIG = {
     'flow_chart': True,
     'sequence': True,
     'language': 'zh',  # zh / en
-    'watch': True  # Live preview
+    'watch': True,  # Live preview
+    'lineWrapping': False,  # lineWrapping
+    'lineNumbers': False  # lineNumbers
 }
 
 

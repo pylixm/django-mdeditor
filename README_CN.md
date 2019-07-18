@@ -202,7 +202,9 @@ MDEDITOR_CONFIGS = {
     'tex': True,  # 是否开启 tex 图表功能
     'flow_chart': True,  # 是否开启流程图功能
     'sequence': True,  # 是否开启序列图功能
-    'watch': True  # 实时预览
+    'watch': True,  # 实时预览
+    'lineWrapping': False,  # 自动换行
+    'lineNumbers': False  # 行号
 }
 ```
 
