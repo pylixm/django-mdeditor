@@ -38,23 +38,26 @@
 
 {% if config.language == 'en' %}
 <script src="{% static 'mdeditor/languages/en.js' %}"></script>
+{% elif config.language == 'de' %}
+<script src="{% static 'mdeditor/languages/de.js' %}"></script>
 {% endif %}
 <script type="text/javascript">
 
     $(function () {
         editormd("{{ id }}-wmd-wrapper", {
             watch: {{ config.watch|lower }}, // 关闭实时预览
+            lineNumbers: false,
+            lineWrapping: false,
             width: "{{ config.width }}",
             height: {{ config.height }},
             // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
             onfullscreen : function() {
-                this.editor.css("border-radius", 0).css("z-index", 120);
+                this.editor.css("border-radius", 0).css("z-index", 9999);
             },
             onfullscreenExit : function() {
                 this.editor.css({
                     zIndex : 10,
-                    border : "none",
-                    "border-radius" : "5px"
+                    border : "1px solid rgb(221,221,221)"
                 })
             },
             syncScrolling: "single",
@@ -76,7 +79,6 @@
             imageUpload: true,
             imageFormats: {{ config.upload_image_formats|safe }},
             imageUploadURL: "/mdeditor/uploads/",
-            // toolbarIcons: 'mini',
             toolbarIcons: function () {
                 return {{ config.toolbar|safe }}
             },

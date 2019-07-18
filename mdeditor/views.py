@@ -46,7 +46,7 @@ class UploadView(generic.View):
             }))
 
         # image floder check
-        file_path = os.path.join(media_root, MDEDITOR_CONFIGS['image_floder'])
+        file_path = os.path.join(media_root, MDEDITOR_CONFIGS['image_folder'])
         if not os.path.exists(file_path):
             try:
                 os.makedirs(file_path)
@@ -68,5 +68,5 @@ class UploadView(generic.View):
         return HttpResponse(json.dumps({'success': 1,
                                         'message': "上传成功！",
                                         'url': '{0}{1}/{2}'.format(settings.MEDIA_URL,
-                                                            MDEDITOR_CONFIGS['image_floder'],
+                                                            MDEDITOR_CONFIGS['image_folder'],
                                                             file_full_name)}))

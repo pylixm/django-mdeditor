@@ -136,7 +136,7 @@ MDEDITOR_CONFIGS = {
                     "||", "preview", "watch", "fullscreen"],
         'upload_image_formats': ["jpg", "JPG", "jpeg", "JPEG", "gif", "GIF",
                                  "png", "PNG", "bmp", "BMP", "webp", "WEBP"],
-        'image_floder': 'editor',
+        'image_folder': 'editor',
         'theme': 'default',  # dark / default
         'preview_theme': 'default',  # dark / default
         'editor_theme': 'default',  # pastel-on-dark / default
