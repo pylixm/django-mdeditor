@@ -9,11 +9,18 @@
     .wmd-wrapper ul ul li{
         list-style: circle !important;
     }
-    .wmd-wrapper h1,h2,h3,h4,h5,h6 {
+    .wmd-wrapper h1,
+    .wmd-wrapper h2,
+    .wmd-wrapper h3,
+    .wmd-wrapper h4,
+    .wmd-wrapper h5,
+    .wmd-wrapper h6 {
         background: #ffffff !important;
         color: #000000 !important;
     }
-    .wmd-wrapper h2,h3,h4{
+    .wmd-wrapper h2,
+    .wmd-wrapper h3,
+    .wmd-wrapper h4{
         padding: 0px !important;
     }
     .wmd-wrapper h5{
@@ -33,10 +40,10 @@
 <script src="{% static 'mdeditor/languages/en.js' %}"></script>
 {% endif %}
 <script type="text/javascript">
-    var MarkDownEditor;
 
     $(function () {
-        MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
+        editormd("{{ id }}-wmd-wrapper", {
+            watch: {{ config.watch|lower }}, // 关闭实时预览
             width: "{{ config.width }}",
             height: {{ config.height }},
             // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
@@ -69,6 +76,7 @@
             imageUpload: true,
             imageFormats: {{ config.upload_image_formats|safe }},
             imageUploadURL: "/mdeditor/uploads/",
+            // toolbarIcons: 'mini',
             toolbarIcons: function () {
                 return {{ config.toolbar|safe }}
             },

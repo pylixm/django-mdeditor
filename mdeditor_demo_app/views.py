@@ -19,6 +19,7 @@ class MDEditorFormView(generic.FormView):
         kwargs = {
             'name': form.cleaned_data['name'],
             'content': form.cleaned_data['content'],
+            'content2': form.cleaned_data['content2'],
             'content_test': form.cleaned_data['content']
         }
         instance = models.ExampleModel.objects.create(**kwargs)

@@ -14,9 +14,8 @@ setup(
     include_package_data=True,
     license='GPL-3.0 License',
     description='A simple Django app to edit markdown text.',
-    long_description=README,
-    url='',
-    author='pylixm',
+    url='https://github.com/pylixm/django-mdeditor',
+    author='DeanWu',
     author_email='pyli.xm@gmail.com',
     classifiers=[
         'Environment :: Web Environment',
@@ -42,4 +41,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content'
     ],
+    long_description=README,
+    long_description_content_type='text/markdown'
 )

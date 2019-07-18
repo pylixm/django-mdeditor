@@ -25,7 +25,7 @@ class MDEditorWidget(forms.Textarea):
     def __init__(self, config_name='default', *args, **kwargs):
         super(MDEditorWidget, self).__init__(*args, **kwargs)
         # Setup config from defaults.
-        self.config =MDConfig(config_name)
+        self.config = MDConfig(config_name)
 
     def render(self, name, value, renderer=None, attrs=None):
         """

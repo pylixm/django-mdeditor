@@ -196,7 +196,8 @@ MDEDITOR_CONFIGS = {
         'emoji': True,  # whether to open the expression function
         'tex': True,  # whether to open the tex chart function
         'flow_chart': True,  # whether to open the flow chart function
-        'sequence': True  # Whether to open the sequence diagram function
+        'sequence': True, # Whether to open the sequence diagram function
+        'watch': True  # Live preview
     }
     
 }

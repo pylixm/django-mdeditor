@@ -26,7 +26,8 @@ DEFAULT_CONFIG = {
     'tex': True,
     'flow_chart': True,
     'sequence': True,
-    'language': 'zh'  # zh / en
+    'language': 'zh',  # zh / en
+    'watch': True  # Live preview
 }
 
 

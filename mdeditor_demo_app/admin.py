@@ -7,9 +7,10 @@ from mdeditor.widgets import MDEditorWidget
 
 
 class ExampleModelAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': MDEditorWidget}
-    }
+    pass
+    # formfield_overrides = {
+    #     models.TextField: {'widget': MDEditorWidget}
+    # }
 
 
 admin.site.register(demo_models.ExampleModel, ExampleModelAdmin)

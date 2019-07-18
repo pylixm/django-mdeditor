@@ -146,6 +146,12 @@ MDEDITOR_CONFIGS = {
         'tex': True,
         'flow_chart': True,
         'sequence': True,
-        'language': 'zh'  # zh / en
+        'language': 'zh',  # zh / en
+        'watch': True  # Live preview
+    },
+    'custom': {
+        'width': '90%',
+        'height': 200,
+        'toolbar': ["undo", "redo"]
     }
 }
