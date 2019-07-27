@@ -2,9 +2,9 @@
 # django-mdeditor
 
 
-[![ENV](https://img.shields.io/badge/release-v0.1.14-blue.svg)](https://github.com/pylixm/django-mdeditor)
-[![ENV](https://img.shields.io/badge/Chinese-v0.1.14-blue.svg)](./README_CN.md)
-[![ENV](https://img.shields.io/badge/Gitter-v0.1.14-blue.svg)](https://gitter.im/django-mdeditor/Lobby)
+[![ENV](https://img.shields.io/badge/release-v0.1.15-blue.svg)](https://github.com/pylixm/django-mdeditor)
+[![ENV](https://img.shields.io/badge/Chinese-v0.1.15-blue.svg)](./README_CN.md)
+[![ENV](https://img.shields.io/badge/Gitter-v0.1.15-blue.svg)](https://gitter.im/django-mdeditor/Lobby)
 [![ENV](https://img.shields.io/badge/python-2.x/3.x-green.svg)](https://github.com/pylixm/django-mdeditor)
 [![ENV](https://img.shields.io/badge/django-1.7+-green.svg)](https://github.com/pylixm/django-mdeditor)
 [![LICENSE](https://img.shields.io/badge/license-GPL3.0-green.svg)](https://github.com/pylixm/django-mdeditor/master/LICENSE.txt)
@@ -207,8 +207,13 @@ MDEDITOR_CONFIGS = {
 
 ## Feedback 
 
-[issue]
-Welcome to use and feedback!
+[issue](https://github.com/pylixm/django-mdeditor/issues)Welcome to use and feedback!
+
+or 
+
+QQ Group 
+
+![](screenshot/QQ.png)
 
 ## Reference
 
