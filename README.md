@@ -207,11 +207,9 @@ MDEDITOR_CONFIGS = {
 
 ## Feedback 
 
-[issue](https://github.com/pylixm/django-mdeditor/issues)Welcome to use and feedback!
+Welcome to use and feedback!
 
-or 
-
-QQ Group 
+You can create a [issue](https://github.com/pylixm/django-mdeditor/issues) or join in QQ Group. 
 
 ![](screenshot/QQ.png)
 

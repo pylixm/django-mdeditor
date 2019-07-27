@@ -208,6 +208,14 @@ MDEDITOR_CONFIGS = {
 }
 ```
 
+## 反馈交流
+
+欢迎反馈和交流！
+
+你可以创建 [issue](https://github.com/pylixm/django-mdeditor/issues) 或加入QQ 群。
+
+![](screenshot/QQ.png)
+
 ## 参考
 
 - [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor)
