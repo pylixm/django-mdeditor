@@ -2,9 +2,9 @@
 # django-mdeditor
 
 
-[![ENV](https://img.shields.io/badge/release-v0.1.15-blue.svg)](https://github.com/pylixm/django-mdeditor)
-[![ENV](https://img.shields.io/badge/中文文档-v0.1.15-blue.svg)](./README_CN.md)
-[![ENV](https://img.shields.io/badge/gitter-v0.1.15-blue.svg)](https://gitter.im/django-mdeditor/Lobby)
+[![ENV](https://img.shields.io/badge/release-v0.1.16-blue.svg)](https://github.com/pylixm/django-mdeditor)
+[![ENV](https://img.shields.io/badge/中文文档-v0.1.16-blue.svg)](./README_CN.md)
+[![ENV](https://img.shields.io/badge/gitter-v0.1.16-blue.svg)](https://gitter.im/django-mdeditor/Lobby)
 [![ENV](https://img.shields.io/badge/python-2.x/3.x-green.svg)](https://github.com/pylixm/django-mdeditor)
 [![ENV](https://img.shields.io/badge/django-1.7+-green.svg)](https://github.com/pylixm/django-mdeditor)
 [![LICENSE](https://img.shields.io/badge/license-GPL3.0-green.svg)](https://github.com/pylixm/django-mdeditor/master/LICENSE.txt)

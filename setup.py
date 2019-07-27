@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-mdeditor',
-    version='0.1.15',
+    version='0.1.16',
     packages=find_packages(exclude=['mdeditor_demo', 'mdeditor_demo_app.*', 'mdeditor_demo_app']),
     include_package_data=True,
     license='GPL-3.0 License',
