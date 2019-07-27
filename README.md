@@ -215,4 +215,4 @@ You can create a [issue](https://github.com/pylixm/django-mdeditor/issues) or jo
 
 ## Reference
 
-- [django-ckeditor] (https://github.com/django-ckeditor/django-ckeditor)
+- [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor)

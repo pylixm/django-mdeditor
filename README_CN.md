@@ -218,4 +218,4 @@ MDEDITOR_CONFIGS = {
 
 ## 参考
 
-- [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor)
+-[django-ckeditor](https://github.com/django-ckeditor/django-ckeditor)
