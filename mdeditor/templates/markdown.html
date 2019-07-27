@@ -50,6 +50,7 @@
             lineWrapping: {{ config.lineWrapping|lower }},
             width: "{{ config.width }}",
             height: {{ config.height }},
+            placeholder: '{{ config.placeholder }}',
             // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
             onfullscreen : function() {
                 this.editor.css("border-radius", 0).css("z-index", 9999);

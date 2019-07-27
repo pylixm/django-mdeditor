@@ -149,7 +149,8 @@ MDEDITOR_CONFIGS = {
         'language': 'zh',  # zh / en
         'watch': True,  # Live preview
         'lineWrapping': False,  # lineWrapping
-        'lineNumbers': True  # lineNumbers
+        'lineNumbers': True,  # lineNumbers,
+        'placeholder': 'Enjoy!'
     },
     'custom': {
         'width': '90%',
