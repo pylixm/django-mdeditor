@@ -34,7 +34,9 @@
     }
 </style>
 
-<div class="wmd-wrapper"  id="{{ id }}-wmd-wrapper"><textarea {{ final_attrs|safe }}>{{ value }}</textarea></div>
+<div class="wmd-wrapper"  id="{{ id }}-wmd-wrapper">
+  <textarea {{ final_attrs|safe }}>{{ value }}</textarea>
+</div>
 
 {% if config.language == 'en' %}
 <script src="{% static 'mdeditor/languages/en.js' %}"></script>
