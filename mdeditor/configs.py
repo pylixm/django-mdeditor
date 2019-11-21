@@ -24,6 +24,7 @@ DEFAULT_CONFIG = {
     'search_replace': True,
     'emoji': True,
     'tex': True,
+    'task_list': False,
     'flow_chart': True,
     'sequence': True,
     'language': 'zh',  # zh / en
