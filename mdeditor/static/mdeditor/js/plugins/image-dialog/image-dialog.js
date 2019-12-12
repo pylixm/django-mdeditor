@@ -9,6 +9,19 @@
  * @license     MIT
  */
 
+function fileType(extention) {
+
+    var image_types = ["jpg", "jpeg", "gif", "png", "bmp", "webp"];
+    var video_types = ["mp4", "webm", "ogg"];
+    if (image_types.indexOf(extention) !== -1) {
+        return "image";
+    }
+    else if (video_types.indexOf(extention) !== -1){
+        return "video"
+    }
+    return false;
+}
+
 (function() {
 
     var factory = function (exports) {
@@ -84,6 +97,13 @@
                             var url  = this.find("[data-url]").val();
                             var alt  = this.find("[data-alt]").val();
                             var link = this.find("[data-link]").val();
+                            var type = fileType(url.split(".").pop());
+                            var fullPath = document.location.origin + url;
+
+                            if (!type) {
+                                alert("Неверный тип загружаемого файла.");
+                                return false;
+                            }
 
                             if (url === "")
                             {
@@ -92,10 +112,14 @@
                             }
 
 							var altAttr = (alt !== "") ? " \"" + alt + "\"" : "";
-
                             if (link === "" || link === "http://")
                             {
-                                cm.replaceSelection("![" + alt + "](" + url + altAttr + ")");
+                                if (type === "image") {
+                                    cm.replaceSelection("![" + alt + "](" + fullPath + ")");
+                                }
+                                else if(type === "video") {
+                                    cm.replaceSelection("<video controls src="+ fullPath +"></video>");
+                                }
                             }
                             else
                             {
