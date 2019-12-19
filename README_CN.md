@@ -47,6 +47,12 @@
     ]
 ```
 
+- 针对django3.0+修改 frame 配置，如下：
+
+```python
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # django 3.0 + 默认为 deny
+```
+
 - 在 `settings` 中添加媒体文件的路径配置:
 ```python
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')

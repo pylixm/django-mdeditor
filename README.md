@@ -50,6 +50,12 @@
     ]
 ```
 
+- add frame settings for django3.0+ like this：
+
+```python
+X_FRAME_OPTIONS = 'SAMEORIGIN' 
+```
+
 - Add 'media' url to your settings like this:
 ```python
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
