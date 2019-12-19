@@ -14,7 +14,10 @@
 
 **Django-mdeditor** 的灵感参考自伟大的项目 [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor).
 
-**注：** 关于Markdown页面渲染问题，建议后端渲染。因`Editor.md` 已长时间不更新有些bug和兼容性问题需要自己调试，当然前端同学可自行选择。
+**注：** 
+
+- 关于Markdown页面渲染问题，建议后端渲染。因`Editor.md` 已长时间不更新有些bug和兼容性问题需要自己调试，当然前端同学可自行选择。
+- 关于`Jquery`冲突问题，因admin后端需要，无法删除。建议将编辑页面单独一页或直接单独全屏一页，使用自己单独的静态文件，与其他页面区分。
 
 ## 功能
 
