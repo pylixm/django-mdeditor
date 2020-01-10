@@ -2094,7 +2094,20 @@
                     $.proxy(settings.onchange, this)();
                 }
             }
-
+            /**
+             * Checking for iframes and rendering them as html
+             */
+            const pArray = [...document.getElementsByClassName('editormd-preview-container')[0].children];
+            const iframeRegex = new RegExp('<\\s*iframe[^>]*>(.*?)<\\s*/\\s*iframe>', 'g');
+            for (let i = 0; i < pArray.length; i++) {
+                let matches = [...pArray[i].innerText.matchAll(iframeRegex)];
+                // Removing all string iframes
+                pArray[i].innerText = pArray[i].innerText.replace(iframeRegex, "");
+                for (let match of matches) {
+                    // Rendering all matched iframes as html
+                    pArray[i].innerHTML += '<p>' + match[0]; + '</p>'
+                }
+            }
             return this;
         },
         
