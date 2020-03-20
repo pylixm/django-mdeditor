@@ -100,4 +100,13 @@
         });
 
     });
+
+
+    var h = document.documentElement.clientHeight;
+    document.getElementById("{{ id }}-container").style.height=h-$("#{{ id }}-container").offset().top-20+"px";
+
+    $(window).resize(function () {
+        var h = document.documentElement.clientHeight;
+        document.getElementById("{{ id }}-container").style.height=h-$("#{{ id }}-container").offset().top-20+"px";
+    });
 </script>
