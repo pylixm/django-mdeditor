@@ -192,7 +192,7 @@ admin.site.register(demo_models.ExampleModel, ExampleModelAdmin)
 MDEDITOR_CONFIGS = {
 'default':{
     'width': '90%',  # 自定义编辑框宽度
-    'heigth': 500,   # 自定义编辑框高度
+    'height': 500,   # 自定义编辑框高度
     'toolbar': ["undo", "redo", "|",
                 "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                 "h1", "h2", "h3", "h5", "h6", "|",
