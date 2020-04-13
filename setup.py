@@ -1,7 +1,10 @@
+# -*- coding:utf-8 -*-
 import os
+import sys
 from setuptools import find_packages, setup
+from codecs import open
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf-8') as readme:
     long_description = readme.read()
 
 # allow setup.py to be run from any path
@@ -9,7 +12,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-mdeditor',
-    version='0.1.17',
+    version='0.1.18',
     packages=find_packages(exclude=['mdeditor_demo', 'mdeditor_demo_app.*', 'mdeditor_demo_app']),
     include_package_data=True,
     license='GPL-3.0 License',
