@@ -190,6 +190,7 @@ admin.site.register(demo_models.ExampleModel, ExampleModelAdmin)
 在 `settings` 中增加如下配置 ：
 ```python
 MDEDITOR_CONFIGS = {
+'default':{
     'width': '90%',  # 自定义编辑框宽度
     'heigth': 500,   # 自定义编辑框高度
     'toolbar': ["undo", "redo", "|",
@@ -214,6 +215,7 @@ MDEDITOR_CONFIGS = {
     'watch': True,  # 实时预览
     'lineWrapping': False,  # 自动换行
     'lineNumbers': False  # 行号
+    }
 }
 ```
 
