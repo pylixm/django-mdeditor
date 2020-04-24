@@ -31,8 +31,8 @@
 - 提供了 `MDTextFormField` 字段用来支持 `Form` 和 `ModelForm`.
 - 提供了 `MDEditorWidget` 字段用来支持 `admin` 自定义样式使用。
 
-### 文件夹
-
+### 文件夹  
+****
 当你git clone下来这个项目，你能够看到的文件结构是这样的：
 - django-mdeditor
 	- mdeditor_demo
