@@ -31,6 +31,21 @@
 - 提供了 `MDTextFormField` 字段用来支持 `Form` 和 `ModelForm`.
 - 提供了 `MDEditorWidget` 字段用来支持 `admin` 自定义样式使用。
 
+### 文件夹
+---
+当你git clone下来这个项目，你能够看到的文件结构是这样的：
+- django-mdeditor
+	- mdeditor_demo
+	- mdeditor
+	- mdeditor_demo_app
+	- upload
+
+1. **mdeditor_demo**， 这个文件是项目的根，我们创建他通过，django-admin startproject mdeditor_demo命令。我们可以在这个文件夹中通过settings.py改变整个项目的setting和通过改变urls.py改变整个项目的访问路径。
+2. **mdeditor**，这个文件包含了所有对markdown编辑器的核心配置。例如：
+	- 你能让你的markdown编辑器支持表情，通过在configs.py中配置。
+	- 你能够决定你上传的文件存储在哪里，通过修改urls.py。
+3. **mdeditor_demo_app**，这个文件夹是为了前端显示工作的app，通过查看urls.py文件您可以看到，这个文件路径的views功能都是问了前端显示。
+4. **upload**，这个文件夹和上面是完全不同的，上面的文件夹不是项目就是app。这个文件夹是为了存储用户上传内容而创建的。
 
 ## 快速入门
 
