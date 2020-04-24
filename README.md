@@ -20,6 +20,23 @@
 - For Markdown page rendering issues, backend rendering is recommended. Because `Editor.md` has not been updated for a long time, some bugs and compatibility issues need to be debugged. Of course, front-end students can choose.
 - Regarding the `Jquery` conflict, it cannot be deleted because it is required by the admin backend. It is recommended to separate the editing page on a single page or a full screen directly, using its own static file to distinguish it from other pages.
 
+## Folders
+---
+After you git clone this project, you can see this folder structure
+
+- django-mdeditor
+	- mdeditor_demo
+	- mdeditor
+	- mdeditor_demo_app
+	- upload
+
+1. **mdeditor_demo** is the root, created by django-admin startproject. You can see settings in this folder and change the project's url. 
+2. **mdeditor** is the essence of this markdown editor. For example:
+	- You can make you markdown editor support emoji in configs.py.
+	- You can decide where to upload your files in urls.py.
+4. **mdeditor_demo_app** , it work for front-end display, check urls.py you will find out, also it's powered by py and js files, as you know, django is MVC mode,i recommend you take a look it too.
+5. **upload**, it's all different from above. it's the img storage folder, by settings of mdeditor.
+
 ## Features
 
 - Almost Editor.md features 
