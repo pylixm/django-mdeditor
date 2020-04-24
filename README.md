@@ -20,8 +20,8 @@
 - For Markdown page rendering issues, backend rendering is recommended. Because `Editor.md` has not been updated for a long time, some bugs and compatibility issues need to be debugged. Of course, front-end students can choose.
 - Regarding the `Jquery` conflict, it cannot be deleted because it is required by the admin backend. It is recommended to separate the editing page on a single page or a full screen directly, using its own static file to distinguish it from other pages.
 
-## Folders
----
+## Folders  
+
 After you git clone this project, you can see this folder structure
 
 - django-mdeditor
