@@ -3,8 +3,9 @@
  *
  * @file   image-handle-paste.js
  * @author zhangkaixing
- * @date   2019-09-23
- * @link   https://www.codehui.net
+ * @modify stray_came
+ * @date   2020年5月29日
+ * @link   https://www.codehui.net, https://boywithacoin.cn/
  */
 
 (function() {
