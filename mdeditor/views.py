@@ -8,7 +8,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .configs import MDConfig
-from PIL import Image
 
 # TODO 此处获取default配置，当用户设置了其他配置时，此处无效，需要进一步完善
 MDEDITOR_CONFIGS = MDConfig('default')
@@ -23,16 +22,7 @@ class UploadView(generic.View):
 
     def post(self, request, *args, **kwargs):
         upload_image = request.FILES.get("editormd-image-file", None)
-        imgWidth = request.GET.get("imgWidth")
-        imgHeight = request.GET.get("imgHeight")
-        imgPer = request.GET.get("imgPer")
-        imgQua = request.GET.get("imgQua")
         media_root = settings.MEDIA_ROOT
-        # 安全检查,设置默认值
-        imgWidth = imgWidth if imgWidth and int(imgWidth) else 0
-        imgHeight = imgHeight if imgHeight and int(imgHeight) else 0
-        imgPer = imgPer if imgPer and float(imgPer) else 1
-        imgQua = imgQua if imgQua and float(imgQua) > 10 and float(imgQua) < 95 else 75
 
         # image none check
         if not upload_image:
@@ -71,14 +61,8 @@ class UploadView(generic.View):
                                        '{0:%Y%m%d%H%M%S%f}'.format(datetime.datetime.now()),
                                        file_extension)
         with open(os.path.join(file_path, file_full_name), 'wb+') as file:
-            img = Image.open(upload_image)  # .convert("RGB")
-            # resize image with high-quality
-            if int(imgWidth) > 0 and int(imgHeight) > 0:
-                out = img.resize((int(imgWidth), int(imgHeight)), Image.ANTIALIAS)
-            else:
-                out = img.resize((int(img.size[0] * float(imgPer)), int(img.size[1] * float(imgPer))), Image.ANTIALIAS)
-            out.save(file, quality=int(imgQua))
-
+            for chunk in upload_image.chunks():
+                file.write(chunk)
 
         return JsonResponse({'success': 1,
                              'message': "上传成功！",
