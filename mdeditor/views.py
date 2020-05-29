@@ -35,7 +35,9 @@ class UploadView(generic.View):
         # image format check
         file_name_list = upload_image.name.split('.')
         file_extension = file_name_list.pop(-1)
-        file_name = '.'.join(file_name_list)
+        # Replace non-numeric and alphabetic characters in the uploaded image name with '_' characters
+        file_name = '.'.join(["".join(filter(str.isalnum, _))
+                          for _ in file_name_list])
         if file_extension not in MDEDITOR_CONFIGS['upload_image_formats']:
             return JsonResponse({
                 'success': 0,
