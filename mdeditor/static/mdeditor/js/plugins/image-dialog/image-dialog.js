@@ -28,6 +28,15 @@
             var classPrefix = this.classPrefix;
             var iframeName  = classPrefix + "image-iframe";
 			var dialogName  = classPrefix + pluginName, dialog;
+			var img_width 	= "img_width";
+			var img_height 	= "img_height";
+			var img_per		= "img_per";
+			var img_qua		= "img_qua";
+
+			imageLang.width=imageLang.width?imageLang.width:"宽";
+			imageLang.height=imageLang.height?imageLang.height:"高";
+			imageLang.scaling=imageLang.scaling?imageLang.scaling:"缩放";
+			imageLang.quality=imageLang.quality?imageLang.quality:"质量(小于95)";
 
 			cm.focus();
 
@@ -46,13 +55,13 @@
                     action += "&callback=" + settings.uploadCallbackURL + "&dialog_id=editormd-image-dialog-" + guid;
                 }
 
-                var dialogContent = ( (settings.imageUpload) ? "<form action=\"" + action +"\" target=\"" + iframeName + "\" method=\"post\" enctype=\"multipart/form-data\" class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
+                var dialogContent = ( (settings.imageUpload) ? "<form id=\"form\" action=\"" + action +"\" target=\"" + iframeName + "\" method=\"post\" enctype=\"multipart/form-data\" class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
                                         ( (settings.imageUpload) ? "<iframe name=\"" + iframeName + "\" id=\"" + iframeName + "\" guid=\"" + guid + "\"></iframe>" : "" ) +
                                         "<label>" + imageLang.url + "</label>" +
-                                        "<input type=\"text\" data-url />" + (function(){
+                                        "<input type=\"text\" data-url />"+ (function(){
                                             return (settings.imageUpload) ? "<div class=\"" + classPrefix + "file-input\">" +
-                                                                                "<input type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
-                                                                                "<input type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
+                                            "<input type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
+                                            "<input id=\"submit\" type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
                                                                             "</div>" : "";
                                         })() +
                                         "<br/>" +
@@ -62,14 +71,26 @@
                                         "<label>" + imageLang.link + "</label>" +
                                         "<input type=\"text\" value=\"http://\" data-link />" +
                                         "<br/>" +
+										"<label>" + imageLang.width + "</label>" +
+                                      "<input  type=\"text\" value=\"\" id=\""+img_width+"\" autocomplete=\"off\" />" +
+									  "<br/>" +
+									  "<label>" + imageLang.height + "</label>" +
+											"<input  type=\"text\" value=\"\"  id=\""+img_height+"\" autocomplete=\"off\" />"  +
+											"<br/>" +
+									  "<label>" + imageLang.scaling + "</label>" +
+											"<input  type=\"text\" value=\"\"  id=\""+img_per+"\" autocomplete=\"off\" />"  +
+											"<br/>" +
+									  "<label>" + imageLang.quality + "</label>" +
+											"<input  type=\"text\" value=\"\"  id=\""+img_qua+"\" autocomplete=\"off\" />"  +
                                     ( (settings.imageUpload) ? "</form>" : "</div>");
 
                 //var imageFooterHTML = "<button class=\"" + classPrefix + "btn " + classPrefix + "image-manager-btn\" style=\"float:left;\">" + imageLang.managerButton + "</button>";
 
+
                 dialog = this.createDialog({
                     title      : imageLang.title,
                     width      : (settings.imageUpload) ? 465 : 380,
-                    height     : 254,
+                    height     : 430,
                     name       : dialogName,
                     content    : dialogContent,
                     mask       : settings.dialogShowMask,
@@ -119,6 +140,7 @@
                     }
                 });
 
+
                 dialog.attr("id", classPrefix + "image-dialog-" + guid);
 
 				if (!settings.imageUpload) {
@@ -126,6 +148,42 @@
                 }
 
 				var fileInput  = dialog.find("[name=\"" + classPrefix + "image-file\"]");
+
+				var img_width_val = document.getElementById(img_width).value?document.getElementById(img_width).value:0;
+				var img_height_val = document.getElementById(img_height).value?document.getElementById(img_height).value:0;
+				var img_per_val = document.getElementById(img_per).value?document.getElementById(img_per).value:1;
+				var img_qua_val = document.getElementById(img_qua).value?document.getElementById(img_qua).value:75;
+				dialog.find("#"+img_width).bind("keyup",function(e){
+
+					if(e.keyCode>=48&&e.keyCode<=57||e.keyCode==8)
+					img_width_val = document.getElementById(img_width).value;
+					else{
+						document.getElementById(img_width).value=img_width_val;
+					}
+
+					document.getElementById("form").action=action+"&imgWidth="+img_width_val+"&imgHeight="+img_height_val+"&imgPer="+img_per_val+"&imgQua="+img_qua_val;
+				});
+
+				dialog.find("#"+img_height).bind("keyup",function(e){
+
+					if(e.keyCode>=48&&e.keyCode<=57||e.keyCode==8)
+					img_height_val = document.getElementById(img_height).value
+					else{
+					document.getElementById(img_height).value=img_height_val;
+					}
+					document.getElementById("form").action=action+"&imgWidth="+img_width_val+"&imgHeight="+img_height_val+"&imgPer="+img_per_val+"&imgQua="+img_qua_val;
+				});
+
+				dialog.find("#"+img_per).bind("keyup",function(e){
+
+					img_per_val = document.getElementById(img_per).value
+					document.getElementById("form").action=action+"&imgWidth="+img_width_val+"&imgHeight="+img_height_val+"&imgPer="+img_per_val+"&imgQua="+img_qua_val;
+				})
+				dialog.find("#"+img_qua).bind("keyup",function(e){
+
+					img_qua_val = document.getElementById(img_qua).value
+					document.getElementById("form").action=action+"&imgWidth="+img_width_val+"&imgHeight="+img_height_val+"&imgPer="+img_per_val+"&imgQua="+img_qua_val;
+				})
 
 				fileInput.bind("change", function() {
 					var fileName  = fileInput.val();
@@ -141,7 +199,6 @@
                     if (!isImage.test(fileName))
 					{
 						alert(imageLang.formatNotAllowed + settings.imageFormats.join(", "));
-
                         return false;
 					}
 
@@ -150,7 +207,6 @@
                     var submitHandler = function() {
 
                         var uploadIframe = document.getElementById(iframeName);
-
                         uploadIframe.onload = function() {
 
                             loading(false);
@@ -171,12 +227,13 @@
                                   alert(json.message);
                               }
                             }
-
+                            document.getElementById("form").action=action+"&imgWidth="+0+"&imgHeight="+0+"&imgPer="+1+"&imgQua="+75;
                             return false;
                         };
                     };
 
                     dialog.find("[type=\"submit\"]").bind("click", submitHandler).trigger("click");
+				//		dialog.find(".editormd-enter-btn").bind("click", submitHandler).trigger("click");
 				});
             }
 
