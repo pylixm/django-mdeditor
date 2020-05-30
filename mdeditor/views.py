@@ -71,7 +71,7 @@ class UploadView(generic.View):
                                        '{0:%Y%m%d%H%M%S%f}'.format(datetime.datetime.now()),
                                        file_extension)
         with open(os.path.join(file_path, file_full_name), 'wb+') as file:
-            img = Image.open(upload_image)  # .convert("RGB")
+            img = Image.open(upload_image).convert("RGB")
             # resize image with high-quality
             if int(imgWidth) > 0 and int(imgHeight) > 0:
                 out = img.resize((int(imgWidth), int(imgHeight)), Image.ANTIALIAS)
