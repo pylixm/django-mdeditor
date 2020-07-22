@@ -208,7 +208,8 @@ MDEDITOR_CONFIGS = {
         'sequence': True, # Whether to open the sequence diagram function
         'watch': True,  # Live preview
         'lineWrapping': False,  # lineWrapping
-        'lineNumbers': False  # lineNumbers
+        'lineNumbers': False,  # lineNumbers
+        'languaje': 'zh'  # zh / en / es 
     }
     
 }
