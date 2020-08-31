@@ -209,7 +209,7 @@ MDEDITOR_CONFIGS = {
         'watch': True,  # Live preview
         'lineWrapping': False,  # lineWrapping
         'lineNumbers': False,  # lineNumbers
-        'languaje': 'zh'  # zh / en / es 
+        'language': 'zh'  # zh / en / es 
     }
     
 }
