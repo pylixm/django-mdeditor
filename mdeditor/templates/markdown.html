@@ -46,9 +46,10 @@
 <script src="{% static 'mdeditor/languages/pt_BR.js' %}"></script>
 {% endif %}
 <script type="text/javascript">
+    var MarkDownEditor;
 
     $(function () {
-        editormd("{{ id }}-wmd-wrapper", {
+        MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
             watch: {{ config.watch|lower }}, // 关闭实时预览
             lineNumbers: {{ config.lineNumbers|lower }},
             lineWrapping: {{ config.lineWrapping|lower }},
@@ -90,6 +91,10 @@
             },
             onload: function () {
                 console.log('onload', this);
+                // 引入插件 执行监听方法
+                editormd.loadPlugin("{% static 'mdeditor/js/plugins/image-handle-paste/image-handle-paste' %}", function(){
+                    MarkDownEditor.imagePaste();
+                });
                 //this.fullscreen();
                 //this.unwatch();
                 //this.watch().fullscreen();
