@@ -120,6 +120,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # django 3.0 + 默认为 deny
 MDEDITOR_CONFIGS = {
     'default': {
         'width': '90%',
@@ -136,7 +137,7 @@ MDEDITOR_CONFIGS = {
                     "||", "preview", "watch", "fullscreen"],
         'upload_image_formats': ["jpg", "JPG", "jpeg", "JPEG", "gif", "GIF",
                                  "png", "PNG", "bmp", "BMP", "webp", "WEBP"],
-        'image_floder': 'editor',
+        'image_folder': 'editor',
         'theme': 'default',  # dark / default
         'preview_theme': 'default',  # dark / default
         'editor_theme': 'default',  # pastel-on-dark / default
@@ -146,6 +147,15 @@ MDEDITOR_CONFIGS = {
         'tex': True,
         'flow_chart': True,
         'sequence': True,
-        'language': 'zh'  # zh / en
+        'language': 'zh',  # zh / en
+        'watch': True,  # Live preview
+        'lineWrapping': False,  # lineWrapping
+        'lineNumbers': True,  # lineNumbers,
+        'placeholder': 'Enjoy!'
+    },
+    'custom': {
+        'width': '90%',
+        'height': 200,
+        'toolbar': ["undo", "redo"]
     }
 }

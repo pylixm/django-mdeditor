@@ -2,9 +2,9 @@
 # django-mdeditor
 
 
-[![ENV](https://img.shields.io/badge/release-v0.1.14-blue.svg)](https://github.com/pylixm/django-mdeditor)
-[![ENV](https://img.shields.io/badge/Chinese-v0.1.14-blue.svg)](./README_CN.md)
-[![ENV](https://img.shields.io/badge/Gitter-v0.1.14-blue.svg)](https://gitter.im/django-mdeditor/Lobby)
+[![ENV](https://img.shields.io/badge/release-v0.1.19-blue.svg)](https://github.com/pylixm/django-mdeditor)
+[![ENV](https://img.shields.io/badge/中文-v0.1.19-blue.svg)](./README_CN.md)
+[![ENV](https://img.shields.io/badge/Gitter-v0.1.19-blue.svg)](https://gitter.im/django-mdeditor/Lobby)
 [![ENV](https://img.shields.io/badge/python-2.x/3.x-green.svg)](https://github.com/pylixm/django-mdeditor)
 [![ENV](https://img.shields.io/badge/django-1.7+-green.svg)](https://github.com/pylixm/django-mdeditor)
 [![LICENSE](https://img.shields.io/badge/license-GPL3.0-green.svg)](https://github.com/pylixm/django-mdeditor/master/LICENSE.txt)
@@ -15,7 +15,10 @@
 
 **Django-mdeditor** was inspired by great [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor).
 
-**Note:** For Markdown page rendering issues, backend rendering is recommended. Because `Editor.md` has not been updated for a long time, some bugs and compatibility issues need to be debugged. Of course, front-end students can choose.
+**Note:** 
+
+- For Markdown page rendering issues, backend rendering is recommended. Because `Editor.md` has not been updated for a long time, some bugs and compatibility issues need to be debugged. Of course, front-end students can choose.
+- Regarding the `Jquery` conflict, it cannot be deleted because it is required by the admin backend. It is recommended to separate the editing page on a single page or a full screen directly, using its own static file to distinguish it from other pages.
 
 ## Features
 
@@ -45,6 +48,12 @@
         ...
         'mdeditor',
     ]
+```
+
+- add frame settings for django3.0+ like this：
+
+```python
+X_FRAME_OPTIONS = 'SAMEORIGIN' 
 ```
 
 - Add 'media' url to your settings like this:
@@ -182,12 +191,12 @@ MDEDITOR_CONFIGS = {
                     "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                     "h1", "h2", "h3", "h5", "h6", "|",
                     "list-ul", "list-ol", "hr", "|",
-                    "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime"
+                    "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
                     "emoji", "html-entities", "pagebreak", "goto-line", "|",
                     "help", "info",
                     "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar 
         'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # image upload format type
-        'image_floder': 'editor',  # image save the folder name
+        'image_folder': 'editor',  # image save the folder name
         'theme': 'default',  # edit box theme, dark / default
         'preview_theme': 'default',  # Preview area theme, dark / default
         'editor_theme': 'default',  # edit area theme, pastel-on-dark / default
@@ -196,7 +205,11 @@ MDEDITOR_CONFIGS = {
         'emoji': True,  # whether to open the expression function
         'tex': True,  # whether to open the tex chart function
         'flow_chart': True,  # whether to open the flow chart function
-        'sequence': True  # Whether to open the sequence diagram function
+        'sequence': True, # Whether to open the sequence diagram function
+        'watch': True,  # Live preview
+        'lineWrapping': False,  # lineWrapping
+        'lineNumbers': False,  # lineNumbers
+        'language': 'zh'  # zh / en / es 
     }
     
 }
@@ -204,9 +217,14 @@ MDEDITOR_CONFIGS = {
 
 ## Feedback 
 
-[issue]
 Welcome to use and feedback!
+
+You can create a [issue](https://github.com/pylixm/django-mdeditor/issues) or join in QQ Group. 
+
+![](screenshot/QQ.png)
 
 ## Reference
 
-- [django-ckeditor] (https://github.com/django-ckeditor/django-ckeditor)
+- [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor)
+
+

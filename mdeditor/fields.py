@@ -29,4 +29,3 @@ class MDTextField(models.TextField):
         }
         defaults.update(kwargs)
         return super(MDTextField, self).formfield(**defaults)
-

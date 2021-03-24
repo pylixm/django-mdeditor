@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static %}
 <style type="text/css">
     .wmd-wrapper  ul {
         margin-left: 0px !important;
@@ -9,11 +9,18 @@
     .wmd-wrapper ul ul li{
         list-style: circle !important;
     }
-    .wmd-wrapper h1,h2,h3,h4,h5,h6 {
+    .wmd-wrapper h1,
+    .wmd-wrapper h2,
+    .wmd-wrapper h3,
+    .wmd-wrapper h4,
+    .wmd-wrapper h5,
+    .wmd-wrapper h6 {
         background: #ffffff !important;
         color: #000000 !important;
     }
-    .wmd-wrapper h2,h3,h4{
+    .wmd-wrapper h2,
+    .wmd-wrapper h3,
+    .wmd-wrapper h4{
         padding: 0px !important;
     }
     .wmd-wrapper h5{
@@ -27,29 +34,35 @@
     }
 </style>
 
-<div class="wmd-wrapper"  id="{{ id }}-wmd-wrapper"><textarea {{ final_attrs|safe }}>{{ value }}</textarea></div>
+<div class="wmd-wrapper"  id="{{ id }}-wmd-wrapper">
+  <textarea {{ final_attrs|safe }}>{{ value }}</textarea>
+</div>
 
 {% if config.language == 'en' %}
 <script src="{% static 'mdeditor/languages/en.js' %}"></script>
 {% elif config.language == 'de' %}
 <script src="{% static 'mdeditor/languages/de.js' %}"></script>
+{% elif config.language == 'pt_BR' %}
+<script src="{% static 'mdeditor/languages/pt_BR.js' %}"></script>
 {% endif %}
 <script type="text/javascript">
-    var MarkDownEditor;
 
     $(function () {
-        MarkDownEditor = editormd("{{ id }}-wmd-wrapper", {
+        editormd("{{ id }}-wmd-wrapper", {
+            watch: {{ config.watch|lower }}, // 关闭实时预览
+            lineNumbers: {{ config.lineNumbers|lower }},
+            lineWrapping: {{ config.lineWrapping|lower }},
             width: "{{ config.width }}",
             height: {{ config.height }},
+            placeholder: '{{ config.placeholder }}',
             // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
             onfullscreen : function() {
-                this.editor.css("border-radius", 0).css("z-index", 120);
+                this.editor.css("border-radius", 0).css("z-index", 9999);
             },
             onfullscreenExit : function() {
                 this.editor.css({
                     zIndex : 10,
-                    border : "none",
-                    "border-radius" : "5px"
+                    border : "1px solid rgb(221,221,221)"
                 })
             },
             syncScrolling: "single",
@@ -64,6 +77,7 @@
             searchReplace: {{ config.search_replace|lower }},
             emoji: {{ config.emoji|lower }},
             tex: {{ config.tex|lower }},
+            taskList: {{ config.task_list|lower }},
             flowChart: {{ config.flow_chart|lower }},
             sequenceDiagram: {{ config.sequence|lower }},
 

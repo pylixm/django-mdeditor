@@ -8,7 +8,8 @@ from .models import ExampleModel
 
 class MDEditorForm(forms.Form):
     name = forms.CharField()
-    content = MDTextFormField()
+    content2 = MDTextFormField()
+    content = MDTextFormField(config_name='custom')
 
 
 class MDEditorModleForm(forms.ModelForm):
