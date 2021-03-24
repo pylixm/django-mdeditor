@@ -27,7 +27,7 @@ DEFAULT_CONFIG = {
     'task_list': False,
     'flow_chart': True,
     'sequence': True,
-    'language': 'zh',  # zh / en
+    'language': 'zh',  # zh / en / de 
     'watch': True,  # Live preview
     'lineWrapping': False,  # lineWrapping
     'lineNumbers': False  # lineNumbers
