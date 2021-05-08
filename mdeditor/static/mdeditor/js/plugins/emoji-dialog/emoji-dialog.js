@@ -62,6 +62,16 @@
 						title : "Emoji"
 					}
 				}
+			},
+			"de" : {
+				toolbar : {
+					emoji : "Emoji"
+				},
+				dialog : {
+					emoji : {
+						title : "Emoji"
+					}
+				}
 			}
 		};
 

@@ -52,6 +52,18 @@
 						error  : "Error: "
 					}
 				}
+			},
+			"de" : {
+				toolbar : {
+					"goto-line" : "Gehe zu Zeile"
+				},
+				dialog : {
+					"goto-line" : {
+						title  : "Gehe zu Zeile",
+						label  : "Eine Zeile oder Zeilenbereich eingeben",
+						error  : "Fehler: "
+					}
+				}
 			}
 		};
 
