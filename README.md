@@ -186,7 +186,7 @@ Add the following configuration to `settings`:
 MDEDITOR_CONFIGS = {
     'default':{
         'width': '90% ',  # Custom edit box width
-        'heigth': 500,  # Custom edit box height
+        'height': 500,  # Custom edit box height
         'toolbar': ["undo", "redo", "|",
                     "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
                     "h1", "h2", "h3", "h5", "h6", "|",
