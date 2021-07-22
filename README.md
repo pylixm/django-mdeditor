@@ -120,7 +120,7 @@ Admin in the background, will automatically display markdown edit rich text.
 
 Used in front-end template, you can use like this:
 ```python
-{% load staticfiles%}
+{% load staticfiles %}
 <! DOCTYPE html>
 <html lang = "en">
     <head>
@@ -129,9 +129,9 @@ Used in front-end template, you can use like this:
     </ head>
     <body>
         <form method = "post" action = "./">
-            {% csrf_token%}
-            {{form.media}}
-            {{form.as_p}}
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
             <p> <input type = "submit" value = "post"> </ p>
         </ form>
     </ body>
@@ -226,5 +226,4 @@ You can create a [issue](https://github.com/pylixm/django-mdeditor/issues) or jo
 ## Reference
 
 - [django-ckeditor](https://github.com/django-ckeditor/django-ckeditor)
-
 
