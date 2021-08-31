@@ -84,7 +84,7 @@
             // image upload
             imageUpload: true,
             imageFormats: {{ config.upload_image_formats|safe }},
-            imageUploadURL: "/mdeditor/uploads/",
+            imageUploadURL: "{{ config.upload_image_url }}",
             toolbarIcons: function () {
                 return {{ config.toolbar|safe }}
             },
