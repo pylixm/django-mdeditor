@@ -3,7 +3,7 @@ from __future__ import absolute_import
 
 from django import forms
 from django.template.loader import render_to_string
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 
@@ -37,7 +37,7 @@ class MDEditorWidget(forms.Textarea):
         final_attrs = self.build_attrs(self.attrs, attrs, name=name)
         return mark_safe(render_to_string('markdown.html', {
             'final_attrs': flatatt(final_attrs),
-            'value': conditional_escape(force_text(value)),
+            'value': conditional_escape(force_str(value)),
             'id': final_attrs['id'],
             'config': self.config,
         }))
