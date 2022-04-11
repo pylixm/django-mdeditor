@@ -9,9 +9,15 @@
 </head>
 <body>
 <div> name: {{ object.name }}</div>
-<div> content:
+<div> 
+  content 前端解析:
   <div id="content"><textarea>{{ object.content }}</textarea></div>
-  {{ object.content_test }}
+  content2 后端解析:
+  <div >{{ content2_html|safe }}</div>
+  content2 原始text:
+  <div >{{ object.content2 }}</div>
+  content_test:
+  <div ></div>{{ object.content_test }}</div>
 </div>
   <script src="{% static 'mdeditor/js/jquery.min.js' %}"></script>
   <script src="{% static 'mdeditor/js/editormd.min.js' %}"></script>

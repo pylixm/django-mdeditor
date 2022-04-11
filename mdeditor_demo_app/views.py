@@ -9,6 +9,7 @@ try:
     from django.urls import reverse
 except ImportError:  # Django < 2.0
     from django.core.urlresolvers import reverse
+import mistune
 
 
 class MDEditorFormView(generic.FormView):
@@ -19,8 +20,8 @@ class MDEditorFormView(generic.FormView):
         kwargs = {
             'name': form.cleaned_data['name'],
             'content': form.cleaned_data['content'],
-            'content2': form.cleaned_data['content2'],
-            'content_test': form.cleaned_data['content']
+            'content_test': form.cleaned_data['content'],
+            'content2': form.cleaned_data['content2']
         }
         instance = models.ExampleModel.objects.create(**kwargs)
         self.success_url = reverse('show-view', kwargs={'pk': instance.id})
@@ -39,6 +40,14 @@ class ShowView(generic.DetailView):
     model = models.ExampleModel
     template_name = 'show.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(ShowView, self).get_context_data(**kwargs)
+        example_obj = context['object']
+        print(example_obj.content2)
+        context['content2_html'] = mistune.markdown(example_obj.content2, escape=False) if example_obj else ''
+        context['content2'] = example_obj.content2 if example_obj else ''
+        print(context)
+        return context
 
 mdeditor_form_view = MDEditorFormView.as_view()
 mdeditor_model_form_view = MDEditorModleForm.as_view()
