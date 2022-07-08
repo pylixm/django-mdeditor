@@ -200,7 +200,7 @@ admin.site.register(demo_models.ExampleModel, ExampleModelAdmin)
 ```python
 MDEDITOR_CONFIGS = {
 'default':{
-  	'upload_to_S3': False, # 将图片直接上传到图床。(需要先设置好django-storage)
+    'upload_to_S3': False, # 将图片直接上传到图床。(需要先设置好django-storage)
     's3_check_existence': True, # 上传之前是否检查同名文件，若图床中已有同名文件则直接返回，不必上传。（默认为True）
     'width': '90%',  # 自定义编辑框宽度
     'heigth': 500,   # 自定义编辑框高度
