@@ -195,7 +195,7 @@ Add the following configuration to `settings`:
 MDEDITOR_CONFIGS = {
     'default':{
         'upload_to_S3': False, # upload images to s3 (using django-storage)
-   			's3_check_existence': True, # check the image existence before uploading it to s3.
+        's3_check_existence': True, # check the image existence before uploading it to s3.
         'width': '90% ',  # Custom edit box width
         'height': 500,  # Custom edit box height
         'toolbar': ["undo", "redo", "|",
