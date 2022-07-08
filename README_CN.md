@@ -38,7 +38,7 @@
 - 安装
 ```bash
     pip install django-mdeditor
-    # 如果使用图床，则需要安装 `django-storage`
+    # 如果使用 S3，则需要安装 `django-storage`
     # pip install django-mdeditor django-storage
 ```
 
