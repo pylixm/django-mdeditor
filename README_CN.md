@@ -26,6 +26,7 @@
     - 支持实时预览、图片上传、格式化代码、搜索替换、皮肤、多语言等。
     - 支持TOC 目录和表情；
     - 支持 TeX, 流程图、时序图等图表扩展。
+    - 支持将图片上传到 AWS S3 或者其他兼容S3 API 的云图床。 
 - 可自定义 Editor.md 工具栏。 
 - 提供了 `MDTextField` 字段用来支持模型字段使用。
 - 提供了 `MDTextFormField` 字段用来支持 `Form` 和 `ModelForm`.
@@ -37,6 +38,8 @@
 - 安装
 ```bash
     pip install django-mdeditor
+    # 如果使用图床，则需要安装 `django-storage`
+    # pip install django-mdeditor django-storage
 ```
 
 - 在 `settings` 配置文件 `INSTALLED_APPS` 中添加 `mdeditor`:
@@ -162,7 +165,7 @@ class MDEditorModleForm(forms.ModelForm):
     class Meta:
         model = ExampleModel
         fields = '__all__'
-``` 
+```
 
 ### 在 admin 中使用 markdown 小组件
 
@@ -185,12 +188,20 @@ class ExampleModelAdmin(admin.ModelAdmin):
 admin.site.register(demo_models.ExampleModel, ExampleModelAdmin)
 ```
 
+### 将图片上传到S3
+
+在settings 中修改 `'upload_to_S3': True,` 启用图床即可。
+
+备注： 有关`django-storage` 的设置部分，请查看 [django-storage 文档](https://django-storages.readthedocs.io/en/latest/)。
+
 ### 自定义工具栏
 
 在 `settings` 中增加如下配置 ：
 ```python
 MDEDITOR_CONFIGS = {
 'default':{
+  	'upload_to_S3': False, # 将图片直接上传到图床。(需要先设置好django-storage)
+    's3_check_existence': True, # 上传之前是否检查同名文件，若图床中已有同名文件则直接返回，不必上传。（默认为True）
     'width': '90%',  # 自定义编辑框宽度
     'heigth': 500,   # 自定义编辑框高度
     'toolbar': ["undo", "redo", "|",
