@@ -27,6 +27,7 @@
     - Full-featured: Real-time Preview, Image (cross-domain) upload, Preformatted text/Code blocks/Tables insert, Search replace, Themes, Multi-languages;
     - Markdown Extras : Support ToC (Table of Contents), Emoji;
     - Support TeX (LaTeX expressions, Based on KaTeX), Flowchart and Sequence Diagram of Markdown extended syntax;
+    - Upports uploading images (or files) directly to AWS S3 or any other storage which compatible with S3 API.
 - Can constom Editor.md toolbar 
 - The MDTextField field is provided for the model and can be displayed directly in the django admin.
 - The MDTextFormField is provided for the Form and ModelForm.
@@ -40,6 +41,8 @@
     pipenv install django-mdeditor
     # or
     pip install django-mdeditor
+    # install `django-storage` if you use upload_to_s3 function.
+    # pip install django-mdeditor django-storage
 ```
 
 - Add `mdeditor` to your INSTALLED_APPS setting like this:
@@ -179,12 +182,20 @@ class ExampleModelAdmin (admin.ModelAdmin):
 
 admin.site.register (demo_models.ExampleModel, ExampleModelAdmin)
 ```
+### Uploading images to S3
+
+Edit `MDEDITOR_CONFIGS` in your settings.py and set `upload_to_S3` to `True`.
+
+Note: Refer to the [django-storage documentation](https://django-storages.readthedocs.io/en/latest/) for `django-storage` setup.
+
 ### Customize the toolbar
 
 Add the following configuration to `settings`:
 ```python
 MDEDITOR_CONFIGS = {
     'default':{
+        'upload_to_S3': False, # upload images to s3 (using django-storage)
+        's3_check_existence': True, # check the image existence before uploading it to s3.
         'width': '90% ',  # Custom edit box width
         'height': 500,  # Custom edit box height
         'toolbar': ["undo", "redo", "|",
