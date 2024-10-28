@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .configs import MDConfig
+from storages.backends.s3boto3 import S3StaticStorage
 
 # TODO 此处获取default配置，当用户设置了其他配置时，此处无效，需要进一步完善
 MDEDITOR_CONFIGS = MDConfig('default')
@@ -60,12 +61,39 @@ class UploadView(generic.View):
         file_full_name = '%s_%s.%s' % (file_name,
                                        '{0:%Y%m%d%H%M%S%f}'.format(datetime.datetime.now()),
                                        file_extension)
-        with open(os.path.join(file_path, file_full_name), 'wb+') as file:
-            for chunk in upload_image.chunks():
-                file.write(chunk)
+        
+        # check editor configuration
+        if MDEDITOR_CONFIGS.get("upload_to_S3"):
+            # check if the user has uploaded the same image already exists in the S3 bucket
+            if MDEDITOR_CONFIGS.get("s3_check_existence"):
+                file_full_name_s3 = '%s.%s' % (file_name, file_extension)
+            else:
+                file_full_name_s3 = file_full_name
+            
+            s3_file_name = \
+                settings.MEDIA_URL.split('/')[1] + \
+                '/' \
+                + MDEDITOR_CONFIGS['image_folder'] + \
+                '/' \
+                + file_full_name_s3
+            
+            # get S3 configurations for boto3
+            storage = S3StaticStorage()
+
+            # file already exists
+            if storage.exists(s3_file_name):
+                url = storage.url(s3_file_name)
+            else:
+                saved = storage.save(name=s3_file_name, content=upload_image)
+                url = (settings.AWS_S3_ENDPOINT_URL + '/' + settings.AWS_STORAGE_BUCKET_NAME + '/' + saved)
+        else:
+            with open(os.path.join(file_path, file_full_name), 'wb+') as file:
+                for chunk in upload_image.chunks():
+                    file.write(chunk)
+            url = os.path.join(settings.MEDIA_URL,
+                               MDEDITOR_CONFIGS['image_folder'],
+                               file_full_name)
 
         return JsonResponse({'success': 1,
                              'message': "上传成功！",
-                             'url': os.path.join(settings.MEDIA_URL,
-                                                 MDEDITOR_CONFIGS['image_folder'],
-                                                 file_full_name)})
+                             'url': url})
