@@ -8,10 +8,10 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .configs import MDConfig
+from PIL import Image
 
 # TODO 此处获取default配置，当用户设置了其他配置时，此处无效，需要进一步完善
 MDEDITOR_CONFIGS = MDConfig('default')
-
 
 class UploadView(generic.View):
     """ upload image file """
@@ -23,6 +23,15 @@ class UploadView(generic.View):
     def post(self, request, *args, **kwargs):
         upload_image = request.FILES.get("editormd-image-file", None)
         media_root = settings.MEDIA_ROOT
+        upload_require_auth = MDEDITOR_CONFIGS.get('upload_require_auth', False)
+
+        # Check if user is authenticated if it is required
+        if upload_require_auth and not request.user.is_authenticated :
+            return JsonResponse({
+                'success' : 0,
+                'message': "Authentication required.",
+                'url': ""
+            })
 
         # image none check
         if not upload_image:
@@ -41,6 +50,15 @@ class UploadView(generic.View):
                 'success': 0,
                 'message': "上传图片格式错误，允许上传图片格式为：%s" % ','.join(
                     MDEDITOR_CONFIGS['upload_image_formats']),
+                'url': ""
+            })
+
+        try :
+            Image.open(upload_image)
+        except :
+            return JsonResponse({
+                'success': 0,
+                'message': "File format not recognized.",
                 'url': ""
             })
 
