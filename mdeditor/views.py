@@ -12,7 +12,6 @@ from .configs import MDConfig
 # TODO 此处获取default配置，当用户设置了其他配置时，此处无效，需要进一步完善
 MDEDITOR_CONFIGS = MDConfig('default')
 
-
 class UploadView(generic.View):
     """ upload image file """
 
@@ -23,6 +22,14 @@ class UploadView(generic.View):
     def post(self, request, *args, **kwargs):
         upload_image = request.FILES.get("editormd-image-file", None)
         media_root = settings.MEDIA_ROOT
+
+        # Check if user is authenticated if it is required
+        if MDEDITOR_CONFIGS['upload_require_auth'] and not request.user.is_authenticated :
+            return JsonResponse({
+                'success' : 0,
+                'message': "Authentication required.",
+                'url': ""
+            })
 
         # image none check
         if not upload_image:

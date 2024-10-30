@@ -17,6 +17,7 @@ DEFAULT_CONFIG = {
     'upload_image_formats': ["jpg", "JPG", "jpeg", "JPEG", "gif", "GIF", "png",
                              "PNG", "bmp", "BMP", "webp", "WEBP"],
     'upload_image_url': '/mdeditor/uploads/',
+    'upload_require_auth' : True,
     'image_folder': 'editor',
     'theme': 'default',  # dark / default
     'preview_theme': 'default',  # dark / default
