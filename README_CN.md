@@ -201,7 +201,8 @@ MDEDITOR_CONFIGS = {
                 "emoji", "html-entities", "pagebreak", "goto-line", "|",
                 "help", "info",
                 "||", "preview", "watch", "fullscreen"],  # 自定义编辑框工具栏
-    'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # 图片上传格式类型
+    'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # 图片上传格式类型,
+    'upload_require_auth' : False, # TODO: Translation needed here
     'image_folder': 'editor',  # 图片保存文件夹名称
     'theme': 'default',  # 编辑框主题 ，dark / default
     'preview_theme': 'default',  # 预览区域主题， dark / default
